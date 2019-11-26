@@ -1,4 +1,8 @@
+import { Route } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from './../services/http.service';
+import { Admin } from './../shared/admin.model';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  admin = new Admin();
+  constructor(private service: HttpService) { }
 
   ngOnInit() {
   }
 
+  onSubmit(form: NgForm){
+    this.admin.Username = form.value["username"];
+    this.admin.Password = form.value["password"];
+    this.service.loginAdmin(this.admin).subscribe(
+      (data) => {
+        if(data=="logged"){
+          console.log("logged");
+        }
+      }
+    );
+  }
 }
