@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
+import { Route, Router, ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './../services/http.service';
 import { Admin } from './../shared/admin.model';
@@ -11,10 +11,20 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  newsignup: boolean = false;
   admin = new Admin();
-  constructor(private service: HttpService) { }
+  constructor(private service: HttpService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(
+      (data) => {
+        if(data["newsignup"] == "yes"){
+          this.newsignup = true
+        }
+      }
+    );
   }
 
   onSubmit(form: NgForm){
@@ -23,7 +33,8 @@ export class LoginComponent implements OnInit {
     this.service.loginAdmin(this.admin).subscribe(
       (data) => {
         if(data=="logged"){
-          console.log("logged");
+          this.newsignup = false;
+          this.router.navigate(['/home']);
         }
       }
     );

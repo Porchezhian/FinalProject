@@ -13,7 +13,10 @@
                             id="fullname" 
                             class="form-control input-field"
                             placeholder="Full Name"
-                            ngModel>
+                            ngModel
+                            required
+                            #fullname="ngModel">
+                            <small class="form-text" *ngIf="!fullname.valid && fullname.touched">Please enter your Full Name</small>
                         </div>
                         <div class="form-group input-icons">
                                 <i class="fa fa-user icon"></i>
@@ -23,8 +26,10 @@
                                 id="username" 
                                 class="form-control input-field"
                                 placeholder="User Name"
-                                ngModel>
-                                
+                                ngModel
+                                required
+                                #username="ngModel">
+                                <small class="form-text" *ngIf="!username.valid && username.touched">Please enter your User Name</small>
                             </div>
                             <div class="form-group input-icons">
                                     <i class="fa fa-envelope icon"></i>
@@ -34,7 +39,11 @@
                                     id="email" 
                                     class="form-control input-field"
                                     placeholder="Email"
-                                    ngModel>
+                                    ngModel
+                                    required
+                                    email
+                                    #email="ngModel">
+                                    <small class="form-text" *ngIf="!email.valid && email.touched">Please enter your Email</small>
                                 </div>
                             <div class="form-group input-icons">
                                 <i class="fa fa-unlock icon"></i>
@@ -44,7 +53,10 @@
                                 id="password" 
                                 class="form-control input-field"
                                 placeholder="Password"
-                                ngModel>
+                                ngModel
+                                required
+                                #password="ngModel">
+                                <small class="form-text" *ngIf="!password.valid && password.touched">Please enter your Password</small>
                             </div>
                             <div class="form-group input-icons">
                                     <i class="fa fa-mobile icon"></i>
@@ -54,9 +66,22 @@
                                     id="phonenumber" 
                                     class="form-control input-field"
                                     placeholder="Mobile Number"
-                                    ngModel>
+                                    ngModel
+                                    required
+                                    onkeydown="return (event.keyCode !== 69) 
+                                    && 
+                                    (event.keyCode !== 189)
+                                    &&
+                                    (event.keyCode !== 187)
+                                    &&
+                                    (event.keyCode !== 190)"
+                                    #phonenumber="ngModel">
+                                    <small class="form-text" *ngIf="!phonenumber.valid && phonenumber.touched">Please enter your Mobile Number</small>
                                 </div>
-                            <button type="submit" class="btn btn-success col-sm-4 offset-sm-4 bottom-button">Sign up</button>    
+                            <button 
+                            type="submit" 
+                            class="btn btn-success col-sm-4 offset-sm-4 bottom-button"
+                            [disabled]="!f.valid">Sign up</button>    
                 </fieldset>
             </form>
         </div>

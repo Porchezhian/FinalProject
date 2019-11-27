@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpService } from './../services/http.service';
 import { Admin } from './../shared/admin.model';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   exist = true;
   admin = new Admin();
-  constructor(private service: HttpService) { }
+  constructor(private service: HttpService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +26,6 @@ export class RegisterComponent implements OnInit {
     this.admin.Password = form.value["password"];
     this.admin.Email = form.value["email"];
     this.admin.Mobile = form.value["phonenumber"];
-    console.log(this.admin);
     this.service.createAdmin(this.admin).subscribe(
       (data) => {
         if(data == "exist"){
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
         }
         else{
           this.exist = false;
+          this.router.navigate(['/login'], {queryParams: {newsignup: "yes"}});
         }
       }
     );
