@@ -1,0 +1,19 @@
+.myrow{
+    height: 230px;
+}
+.mycol{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+img{
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+.card-body{
+    color:black;
+    font-weight: bolder;
+    font-size: larger;
+}

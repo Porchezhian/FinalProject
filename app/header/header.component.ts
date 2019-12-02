@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  name: string = "Porchezhian";  
-
+  
   constructor(private nav : NavService) { 
   }
   

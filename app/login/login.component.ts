@@ -34,9 +34,10 @@ export class LoginComponent implements OnInit {
     this.admin.Password = form.value["password"];
     this.service.loginAdmin(this.admin).subscribe(
       (data) => {
-        if(data=="logged"){
+        if(data!="notlogged"){
+          this.nav.name = data.toString();
           this.newsignup = false;
-          this.nav.toggle()
+          this.nav.logged = true;
           this.router.navigate(['/home']);
         }
       }

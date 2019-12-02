@@ -6,10 +6,8 @@ import { Injectable } from '@angular/core';
 export class NavService {
 
   logged: boolean;
+  name: string;
   constructor() {
     this.logged = false; 
-  }
-  toggle(){
-    this.logged = !this.logged;
   }
 }
