@@ -1,3 +1,4 @@
+import { NavService } from './../services/nav.service';
 import { Route, Router, ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './../services/http.service';
@@ -10,12 +11,13 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   newsignup: boolean = false;
   admin = new Admin();
   constructor(private service: HttpService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private nav: NavService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
       (data) => {
         if(data=="logged"){
           this.newsignup = false;
+          this.nav.toggle()
           this.router.navigate(['/home']);
         }
       }

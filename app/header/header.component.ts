@@ -1,3 +1,4 @@
+import { NavService } from './../services/nav.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   name: string = "Porchezhian";  
-  logged: boolean = false;
-  constructor() { }
+
+  constructor(private nav : NavService) { 
+  }
   
   ngOnInit() {
-  }
-
+    }
 }
+
+
