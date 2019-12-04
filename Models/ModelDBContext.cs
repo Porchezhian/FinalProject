@@ -12,5 +12,13 @@ namespace Backend.Models
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+
+        public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<Ngo> Ngos { get; set; }
+
+        public virtual DbSet<Request> Requests { set; get; }
+
+        public virtual DbSet<Donation> Donations { get; set; }
     }
 }

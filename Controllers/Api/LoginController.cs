@@ -25,9 +25,9 @@ namespace Backend.Controllers.Api
             Admin element = context.Admins.FirstOrDefault(a => a.Username == admin.Username && a.Password == admin.Password);
             if(element == null)
             {
-                return "Username/Password does not exist";
+                return "notlogged";
             }
-            return "logged";
+            return element.Name;
         }
 
     }
