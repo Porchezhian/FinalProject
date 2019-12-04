@@ -1,0 +1,24 @@
+<div class="container"> 
+        <h1>Registered NGOs</h1>    
+        <br>    
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>NGO ID</th>
+              <th>NGO Name</th>
+              <th>Contact Number</th>
+              <th>Email ID</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ngo of ngos;" (click)="onClick(ngo)">
+              <td>{{ngo.Ngo_Id}}</td>
+              <td>{{ngo.Ngo_Name}}</td>
+              <td>{{ngo.Mobile_number}}</td>
+              <td>{{ngo.Email_id}}</td>
+              <td>{{ngo.Ngo_Location}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>

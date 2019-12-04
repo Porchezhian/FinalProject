@@ -12,11 +12,8 @@ export class AuthGuardService implements CanActivate{
   }
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): boolean{
-          if(this.nav.logged == true){
+          if(this.nav.logged == false){
             return true;
-          }
-          else{
-            this.router.navigate(['/pagenotfound']);
           }
   }
 }

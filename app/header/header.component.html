@@ -1,5 +1,11 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-light">
     <a class="navbar-brand" href="#" style="font-weight: bolder;">ADMIN</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
         <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold;">Link1</a></li>
         <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold;">Link2</a></li>
@@ -13,10 +19,10 @@
     </div>
     <div *ngIf="nav.logged" class=" ml-auto">
         <ul class="navbar-nav">
-            <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold;"><img src="assets/myavatar.jpg" alt="Your Avatar" class="image"/>&nbsp;{{nav.name}}</a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="#" class="nav-link" style="font-weight: bold;">&nbsp;{{nav.name}}</a></li>&nbsp;&nbsp;&nbsp;
             <li class="nav-item"><a routerLink="logout" class="nav-link" style="font-weight: bold;">Log out&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a></li>&nbsp;&nbsp;&nbsp;
             <li class="nav-item"><a href="#" class="nav-link"><span class="navbar-toggler-icon" ></span></a></li>
-        </ul>        
+        </ul>  
+    </div>      
     </div>
- 
 </nav>

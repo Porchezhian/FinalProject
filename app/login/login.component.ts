@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           this.nav.name = data.toString();
           this.newsignup = false;
           this.nav.logged = true;
+          console.log(this.nav.logged);
           this.router.navigate(['/home']);
         }
       }

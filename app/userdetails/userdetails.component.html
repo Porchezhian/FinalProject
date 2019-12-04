@@ -1,0 +1,24 @@
+<div class="container"> 
+    <h1>{{name}}</h1>    
+    <br>    
+  <div class="table-reponsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>Request Title</th>
+          <th>Required Quantity</th>
+          <th>Donated Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let donation of donations">
+            <td>{{donation.Request_Id}}</td>
+            <td>{{donation.Request_Title}}</td>
+            <td>{{donation.Number_of_items_Required}}</td>
+            <td>{{donation.Number_of_items_Donated}}</td> 
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

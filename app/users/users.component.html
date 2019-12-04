@@ -1,1 +1,26 @@
-<p>users works!</p>
+<div class="container"> 
+  <h1>Registered Employees</h1>    
+  <br>    
+<div class="table-reponsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Mobile Number</th>
+        <th>Email ID</th>
+        <th>DOB (mm-dd-yyyy)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users;" (click)="onClick(user)">
+        <td>{{user.Employee_Id}}</td>
+        <td>{{user.Employee_Name}}</td>
+        <td>{{user.Mobile_number}}</td>
+        <td>{{user.Email_id}}</td>
+        <td>{{user.Date_of_Birth | date:'dd.MM.yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

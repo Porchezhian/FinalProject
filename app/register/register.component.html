@@ -57,7 +57,7 @@
                                 required
                                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$"
                                 #password="ngModel">
-                                <small class="form-text text-muted">*Atleast one uppercase, onelowercase, one digit</small>
+                                <small class="form-text text-muted">*Atleast one uppercase, one lowercase, one digit</small>
                                 <small class="form-text text-muted">and one special character</small>
                                 <small class="form-text" *ngIf="!password.valid && password.touched">Please enter your Password</small>
                             </div>

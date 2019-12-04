@@ -1,0 +1,28 @@
+<div class="container"> 
+        <h1>Requests</h1>    
+        <br>    
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Request_Title</th>
+              <th>Category</th>
+              <th>NGO ID</th>
+              <th>NGO Name</th>
+              <th>Required Quantity</th>
+              <th>Donated Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let request of requests;let i = index;" (click)="onClick(request)">
+              <td>{{request.RequestId}}</td>
+              <td>{{request.Request_Title}}</td>
+              <td>{{request.category}}</td>
+              <td>{{request.Ngo_Id}}</td>
+              <td>{{request.Ngo_Name}}</td>
+              <td>{{request.Number_of_items_Required}}</td>
+              <td *ngIf="totaldonations">{{totaldonations[i].V}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>

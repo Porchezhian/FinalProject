@@ -4,9 +4,7 @@
 .mycol{
     text-align: center;
 }
-a{
-    text-decoration: none;
-}
+
 img{
     height: 100px;
     width: 100px;
@@ -16,4 +14,7 @@ img{
     color:black;
     font-weight: bolder;
     font-size: larger;
+}
+a{
+    text-decoration: none;
 }

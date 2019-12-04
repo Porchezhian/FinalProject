@@ -36,3 +36,6 @@ input.ng-invalid.ng-touched{
 .form-text{
     color:red;
 }
+.container{
+    width:100%;
+}

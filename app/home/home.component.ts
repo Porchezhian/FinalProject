@@ -1,7 +1,6 @@
 import { NavService } from './../services/nav.service';
 import { Router, NavigationStart } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'minimatch';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +18,9 @@ export class HomeComponent implements OnInit {
     this.router.events.subscribe(
       (event: NavigationStart) => {
         if(event.navigationTrigger == "popstate"){
-            console.log(event.navigationTrigger);
             this.nav.logged = false;
         }
       }
-    )
+    );
   }
-
 }
