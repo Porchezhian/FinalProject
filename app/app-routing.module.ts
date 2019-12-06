@@ -1,4 +1,4 @@
-import { CalendarComponent } from './calendar/calendar.component';
+import { EventComponent } from './event/event.component';
 import { RequestsComponent } from './requests/requests.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { UsersComponent } from './users/users.component';
@@ -16,18 +16,19 @@ import { RequestdetailsComponent } from './requestdetails/requestdetails.compone
 
 
 const routes: Routes = [
-  {path:'calendar', component: CalendarComponent},
+  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'home/event', component: EventComponent, canActivate:[AuthGuardService]},
   {path:'login', component: LoginComponent},
   {path:'logout', component: LogoutComponent},
   {path:'register', component: RegisterComponent},
   //{path:'pagenotfound', component: PageNotFoundComponent},
-  {path:'home', component: HomeComponent},
-  {path:'home/users', component: UsersComponent},
-  {path:'home/ngos', component: NgosComponent},
-  {path:'home/users/userdetails', component: UserdetailsComponent},
-  {path:'home/users/ngodetails', component: NgodetailsComponent},
-  {path:'home/requests', component:RequestsComponent},
-  {path:'home/requests/requestdetails', component: RequestdetailsComponent},
+  {path:'home', component: HomeComponent, canActivate: [AuthGuardService]},
+  {path:'home/users', component: UsersComponent, canActivate:[AuthGuardService]},
+  {path:'home/ngos', component: NgosComponent, canActivate:[AuthGuardService]},
+  {path:'home/users/userdetails', component: UserdetailsComponent, canActivate:[AuthGuardService]},
+  {path:'home/users/ngodetails', component: NgodetailsComponent, canActivate:[AuthGuardService]},
+  {path:'home/requests', component:RequestsComponent, canActivate:[AuthGuardService]},
+  {path:'home/requests/requestdetails', component: RequestdetailsComponent, canActivate:[AuthGuardService]},
 ];
 
 @NgModule({

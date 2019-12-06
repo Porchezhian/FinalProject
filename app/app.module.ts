@@ -1,12 +1,10 @@
-import { NavService } from './services/nav.service';
 import { HttpService } from './services/http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RecaptchaModule } from 'ng-recaptcha';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +18,8 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { NgodetailsComponent } from './ngodetails/ngodetails.component';
 import { RequestsComponent } from './requests/requests.component';
 import { RequestdetailsComponent } from './requestdetails/requestdetails.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { EventComponent } from './event/event.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,16 +36,15 @@ import { CalendarComponent } from './calendar/calendar.component';
     NgodetailsComponent,
     RequestsComponent,
     RequestdetailsComponent,
-    CalendarComponent
+    EventComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    RecaptchaModule
+    HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

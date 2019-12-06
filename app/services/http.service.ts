@@ -1,3 +1,5 @@
+import { DetailsService } from './details.service';
+import { Event } from './../shared/event.model';
 import { Ngo } from './../shared/ngo.model';
 import { User } from './../shared/user.model';
 import { Admin } from './../shared/admin.model';
@@ -39,5 +41,23 @@ export class HttpService {
   }
   getRequestsForNgo(ngo: Ngo){
     return this.http.post("https://localhost:44392/api/request", ngo);
+  }
+  storeEvent(event: Event){
+    return this.http.post("https://localhost:44392/api/event", event);
+  }
+  getEvents(){
+    return this.http.get("https://localhost:44392/api/event");
+  }
+  deleteEvent(id: number){
+    return this.http.delete("https://localhost:44392/api/event/"+id);
+  }
+  deleteRequest(id: number){
+    return this.http.delete("https://localhost:44392/api/request/"+id);
+  }
+  deleteDonation(id: number){
+    return this.http.delete("https://localhost:44392/api/donation/"+id);
+  }
+  getDonationByRequestId(eve: Event){
+    return this.http.post("https://localhost:44392/api/donationsbyrequestid", eve);
   }
 }

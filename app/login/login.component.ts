@@ -1,6 +1,6 @@
 import { NavService } from './../services/nav.service';
 import { Route, Router, ActivatedRoute} from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpService } from './../services/http.service';
 import { Admin } from './../shared/admin.model';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -27,6 +27,14 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+  }
+
+  ngDoCheck(): void {
+    if(this.nav.logged == true)
+    {
+      this.nav.logged = false;
+    }    
+    
   }
 
   onSubmit(form: NgForm){

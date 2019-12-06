@@ -14,7 +14,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let request of requests;let i = index;" (click)="onClick(request)">
+            <tr *ngFor="let request of requests;let i = index;">
               <td>{{request.RequestId}}</td>
               <td>{{request.Request_Title}}</td>
               <td>{{request.category}}</td>
@@ -22,6 +22,12 @@
               <td>{{request.Ngo_Name}}</td>
               <td>{{request.Number_of_items_Required}}</td>
               <td *ngIf="totaldonations">{{totaldonations[i].V}}</td>
+              <td>
+                <form (ngSubmit)="onSubmit(f, request, totaldonations[i].V)" #f="ngForm">
+                  <input id="eventdate" name="eventdate" type="date" class="form-control" ngModel>
+                  <button class="btn btn-info" type="submit">Set Event</button>
+                </form>
+              </td>
             </tr>
           </tbody>
         </table>

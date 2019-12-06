@@ -15,12 +15,5 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.subscribe(
-      (event: NavigationStart) => {
-        if(event.navigationTrigger == "popstate"){
-            this.nav.logged = false;
-        }
-      }
-    );
   }
 }

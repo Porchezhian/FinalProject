@@ -1,0 +1,24 @@
+<div class="container"> 
+    <h1>Events</h1>    
+    <br>    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>Request_Title</th>
+          <th>NGO ID</th>
+          <th>NGO Name</th>
+          <th>Event Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>{{event.Request_Id}}</td>
+          <td>{{event.Request_Title}}</td>
+          <td>{{event.Ngo_Id}}</td>
+          <td>{{event.Ngo_Name}}</td>
+          <td>{{event.EventDate.split('T')[0]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
