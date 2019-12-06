@@ -33,5 +33,18 @@ namespace Backend.Controllers.Api
         {
             return context.Donations.Where(x => x.user.Id == user.Id);
         }
+
+        [HttpDelete]
+        public String DeleteDonation(int id)
+        {
+            IQueryable<Donation> donations = context.Donations.Where(x => x.Request_Id == id);
+            if (donations!=null)
+            {
+                donations.ForEachAsync(x => context.Donations.Remove(x));
+                context.SaveChanges();
+                return "Removed from donations";
+            }
+            return "Does not exist";
+        }
     }
 }

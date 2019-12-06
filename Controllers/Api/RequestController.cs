@@ -30,5 +30,17 @@ namespace Backend.Controllers.Api
 
             return context.Requests.Where(x => x.Ngo_Id == ngo.Id);
         }
+        [HttpDelete]
+        public string DeleteRequest(int id)
+        {
+            Request req = context.Requests.FirstOrDefault(x => x.RequestId == id);
+            if (req != null)
+            {
+                context.Requests.Remove(req);
+                context.SaveChanges();
+                return "Removed from request table";
+            }
+            return "Does not exist";
+        }
     }
 }

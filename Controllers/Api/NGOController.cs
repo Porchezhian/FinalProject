@@ -23,5 +23,10 @@ namespace Backend.Controllers.Api
         {
             return context.Ngos.ToList();
         }
+        [HttpPost]
+        public Ngo GetNgoById(int id)
+        {
+            return context.Ngos.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

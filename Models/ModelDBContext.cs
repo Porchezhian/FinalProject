@@ -20,5 +20,7 @@ namespace Backend.Models
         public virtual DbSet<Request> Requests { set; get; }
 
         public virtual DbSet<Donation> Donations { get; set; }
+
+        public virtual DbSet<Event> Events { get; set; }
     }
 }

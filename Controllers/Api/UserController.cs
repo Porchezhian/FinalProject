@@ -23,6 +23,11 @@ namespace Backend.Controllers.Api
         {
             return context.Users.ToList();
         }
-
+        [HttpPost]
+        
+        public User GetUserById(int id)
+        {
+            return context.Users.FirstOrDefault(x => x.Employee_Id == id);
+        }
     }
 }
